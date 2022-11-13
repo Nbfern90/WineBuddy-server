@@ -1,4 +1,5 @@
 // IMPORT EXPRESS AND CREATE AN INSTANCE OF EXPRESS SERVER
+const path = require("path");
 const express = require("express");
 const app = express();
 require("dotenv").config();
@@ -28,6 +29,19 @@ WineRoutes(app);
 
 const UserRoutes = require("./routes/userRoutes");
 UserRoutes(app);
+
+//SERVE FRONTEND
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, "../", "client", "build", "index.html")
+    )
+  );
+} else {
+  app.get("/", (req, res) => res.send("Please Set To Production"));
+}
 
 //EXPRESS ERROR HANDLING: THIS MUST BE UNDER YOUR ROUTES!!!
 const { errorHandler } = require("./middleware/errorMiddleware");
