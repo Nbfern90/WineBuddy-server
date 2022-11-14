@@ -7,14 +7,6 @@ const port = 8000; //the port # our server is running on
 const cors = require("cors");
 app.use(cors());
 
-// {
-//   origin: [
-//     "http://localhost:8000",
-//     "https://wine-buddy-app.onrender.com/",
-//     "https://wine-buddy-api.onrender.com",
-//   ],
-// }
-
 //CONNECT MONGOOSE TO THE MONGODB
 require("./config/mongoose.config");
 
