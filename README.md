@@ -16,3 +16,4 @@ FRONTEND - https://github.com/Nbfern90/WineBuddy-client
   - express-async-handler: ^1.2.0
   - jsonwebtoken: ^8.5.1
   - mongoose: ^6.6.5
+- Deployed on https://render.com/
